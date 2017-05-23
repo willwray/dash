@@ -17,9 +17,19 @@ the usage of the absolute path.
 To Build
 ---------------------
 
+First, fetch and build the dependencies (see also [README.md](../depends/README.md) in the depends directory).
+
+```bash
+cd depends
+make
+cd ..
+```
+
+This creates a subdirectory in the the depends directory with a platform name such as `x86_64-pc-linux-gnu`. Use this as a `--prefix` in the `configure` command below:
+
 ```bash
 ./autogen.sh
-./configure
+./configure --prefix=`pwd`/depends/x86_64-pc-linux-gnu
 make
 make install # optional
 ```
